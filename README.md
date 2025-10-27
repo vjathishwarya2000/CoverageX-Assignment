@@ -67,28 +67,29 @@ VITE_API_BASE_URL=/api
 
 After the stack is up, you can exercise the API directly:
 
-[comment]: <> (Create a task)
+#### Create a task
+
 curl -X POST http://localhost/api/tasks \
   -H "Content-Type: application/json" \
   -d '{"title":"Read books","description":"Need to cover the syllabus"}'
 
-<> List tasks
+#### List tasks
 curl http://localhost/api/tasks
 
 
 If your frontend publishes on port 3000, use http://localhost:3000/api/....
 
 ## 6) Useful commands
-<> View logs (follow all services)
+#### View logs (follow all services)
 docker compose logs -f
 
-<> View only backend logs
+#### View only backend logs
 docker compose logs -f backend
 
-<> Stop containers (keep data volumes)
+#### Stop containers (keep data volumes)
 docker compose down
 
-<> Stop and remove containers + volumes (fresh start)
+#### Stop and remove containers + volumes (fresh start)
 docker compose down -v
 
 ## 7) Local development (optional, without Docker)
