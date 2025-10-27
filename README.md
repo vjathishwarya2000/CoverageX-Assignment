@@ -67,7 +67,7 @@ VITE_API_BASE_URL=/api
 
 After the stack is up, you can exercise the API directly:
 
-[comment]: <> Create a task
+[comment]: Create a task
 curl -X POST http://localhost/api/tasks \
   -H "Content-Type: application/json" \
   -d '{"title":"Read books","description":"Need to cover the syllabus"}'
