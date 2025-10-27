@@ -3,7 +3,7 @@ import { memo, useMemo } from "react";
 function monthMatrix(d = new Date()) {
   const y = d.getFullYear(), m = d.getMonth();
   const first = new Date(y, m, 1);
-  const start = new Date(y, m, 1 - ((first.getDay() + 6) % 7)); // Monday-first
+  const start = new Date(y, m, 1 - ((first.getDay() + 6) % 7)); 
   return Array.from({ length: 42 }, (_, i) =>
     new Date(start.getFullYear(), start.getMonth(), start.getDate() + i)
   );

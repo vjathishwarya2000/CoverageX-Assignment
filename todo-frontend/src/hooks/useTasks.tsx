@@ -21,12 +21,12 @@ export function useTasks() {
 
   const addTask = useCallback(async (title: string, description: string) => {
     await api.post<Task>('/tasks', { title, description });
-    await fetchTasks();            // keep source of truth the server
+    await fetchTasks();            
   }, [fetchTasks]);
 
   const completeTask = useCallback(async (id: number) => {
     await api.patch(`/tasks/${id}/complete`);
-    await fetchTasks();            // << re-fetch to fill back to 5
+    await fetchTasks();            
   }, [fetchTasks]);
 
   useEffect(() => { void fetchTasks(); }, [fetchTasks]);

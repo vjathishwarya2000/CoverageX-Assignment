@@ -10,7 +10,7 @@ const tasks = [
 ];
 
 export const server = setupServer(
-  // GET /tasks  → return only incomplete, then apply the limit
+  // GET /tasks 
   http.get('http://localhost:8080/api/tasks', ({ request }) => {
     const url = new URL(request.url);
     const limit = Number(url.searchParams.get('limit') || 5);
@@ -18,7 +18,7 @@ export const server = setupServer(
     return HttpResponse.json(list);
   }),
 
-  // POST /tasks  → prepend as incomplete
+  // POST /tasks  
   http.post('http://localhost:8080/api/tasks', async ({ request }) => {
     const body = (await request.json()) as { title: string; description: string };
     const id = tasks.length + 1;

@@ -17,7 +17,7 @@ services:
       timeout: 3s
       retries: 20
     ports:
-      - "3307:3306"  # optional: for local debugging
+      - "3307:3306"  
 
   backend:
     build:
@@ -32,7 +32,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD}
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SERVER_PORT: 8080
-      # CORS will read this (see CorsConfig change below)
+      # CORS will read this 
       APP_ALLOWED_ORIGINS: http://localhost:3000
     healthcheck:
       test: ["CMD", "bash", "-lc", "exec 3<>/dev/tcp/127.0.0.1/8080 || exit 1"]

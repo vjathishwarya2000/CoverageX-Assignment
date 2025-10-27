@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vitest/config';   // ⬅️ from vitest/config
+import { defineConfig } from 'vitest/config';   
 
 
 
@@ -8,8 +8,8 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: './src/test/setup.tsx',
-    css: true,               // let RTL render styles without errors
-    globals: true,           // use `describe/it/expect` without imports
+    css: true,               
+    globals: true,           
     coverage: {
       reporter: ['text', 'html'],
       reportsDirectory: './coverage',
