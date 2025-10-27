@@ -1,16 +1,14 @@
-# CoverageX - Assignment
-
-To-Do App (React + Spring Boot + MySQL) — Dockerized
+# To-Do App (React + Spring Boot + MySQL) — Dockerized
 
 A small full-stack To-Do application:
 
-Frontend: React (Vite) served by Nginx
+- Frontend: React (Vite) served by Nginx
 
-Backend: Spring Boot (Java 17)
+- Backend: Spring Boot (Java 17)
 
-DB: MySQL 8
+- DB: MySQL 8
 
-Orchestration: Docker Compose
+- Orchestration: Docker Compose
 
 The app is wired so the frontend talks to the backend via the same origin (/api), which works consistently on Linux, macOS, and Windows.
 
