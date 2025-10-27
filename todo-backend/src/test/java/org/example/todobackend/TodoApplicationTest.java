@@ -1,7 +1,5 @@
 package org.example.todobackend;
 
-
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.todobackend.dto.TaskRequest;
 import org.junit.jupiter.api.Test;
@@ -19,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-class TodoApplicationIT {
+class TodoApplicationTest {
 
     @Autowired MockMvc mvc;
     @Autowired ObjectMapper om;

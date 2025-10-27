@@ -22,7 +22,6 @@ public class Task {
     @Column(nullable = false, updatable = false)
     private Instant createdAt = Instant.now();
 
-    // getters and setters
     public Long getId() { return id; }
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }

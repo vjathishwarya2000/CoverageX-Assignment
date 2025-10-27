@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DataJpaTest
-@Import(TaskService.class)     // bring the service in
+@Import(TaskService.class)     
 @ActiveProfiles("test")
 class TaskServiceTest {
 
@@ -34,7 +34,6 @@ class TaskServiceTest {
         assertThat(saved.getId()).isNotNull();
         assertThat(saved.getTitle()).isEqualTo("Buy");          
 
-        // or reload by id to be extra sure
         Task reloaded = repo.findById(saved.getId()).orElseThrow();
         assertThat(reloaded.getTitle()).isEqualTo("Buy");
         assertThat(reloaded.isCompleted()).isFalse();
@@ -46,7 +45,6 @@ class TaskServiceTest {
         service.complete(t.getId());
         assertThat(repo.findById(t.getId()).orElseThrow().isCompleted()).isTrue();
 
-        // idempotent: calling again doesn’t break
         service.complete(t.getId());
         assertThat(repo.findById(t.getId()).orElseThrow().isCompleted()).isTrue();
     }
@@ -58,17 +56,17 @@ class TaskServiceTest {
 
     @Test
     void listRecentIncomplete_capsLimitAndSorts() {
-        // 6 tasks, last one completed
+        
         Task last = null;
         for (int i = 0; i < 6; i++) {
             last = service.create("T" + i, "");
         }
-        // mark the latest as completed so it doesn’t show up
+        
         service.complete(last.getId());
 
         var list = service.listRecentIncomplete(50);
-        assertThat(list).hasSize(5);                               // capped at 5 by repo pageable
-        assertThat(list).allMatch(t -> !t.isCompleted());          // no completed
+        assertThat(list).hasSize(5);                               
+        assertThat(list).allMatch(t -> !t.isCompleted());          
         assertThat(list)
                 .isSortedAccordingTo((a, b) -> b.getCreatedAt().compareTo(a.getCreatedAt()));
     }
