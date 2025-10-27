@@ -51,15 +51,15 @@ If the frontend publishes on port 3000, use http://localhost:3000/api/....
 ## 4) Useful commands
 
 #### View logs (follow all services)
-docker compose logs -f
+`docker compose logs -f`
 
 #### View only backend logs
-docker compose logs -f backend
+`docker compose logs -f backend`
 
 #### Stop containers (keep data volumes)
-docker compose down
+`docker compose down`
 
 #### Stop and remove containers + volumes (fresh start)
-docker compose down -v
+`docker compose down -v`
 
 
