@@ -32,7 +32,7 @@ class TaskServiceTest {
     void create_persistsAndReturns() {
         Task saved = service.create("Buy", "Milk");
         assertThat(saved.getId()).isNotNull();
-        assertThat(saved.getTitle()).isEqualTo("Buy");          // ✅ assert on returned entity
+        assertThat(saved.getTitle()).isEqualTo("Buy");          
 
         // or reload by id to be extra sure
         Task reloaded = repo.findById(saved.getId()).orElseThrow();
